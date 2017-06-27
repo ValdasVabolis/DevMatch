@@ -10,10 +10,10 @@ class ContactsController < ApplicationController
     if @contact.save
       # redirect to blank form with success message
       flash[:success] = "Message sent!"
-      redirect_to new_contact_path, notice: "Message sent!"
+      redirect_to new_contact_path
     else
       # redirect to blank form with failure message
-      flash[:error] = @contact.errors.full_messages.join(", ")
+      flash[:danger] = @contact.errors.full_messages.join(", ")
       redirect_to new_contact_path
     end
   end
