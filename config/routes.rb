@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # on get request, go to pages controller and run about action
   get 'about', to: 'pages#about'
   resources :contacts
+  get 'contact-us', to: 'contacts#new'
 end
