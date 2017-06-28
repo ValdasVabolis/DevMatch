@@ -1,4 +1,7 @@
 class ContactsController < ApplicationController
+  # Rails looks for corresponding view file (new.html.erb)
+  # when routes.rb calls this action, that's how we display
+  # the webpage we want. 
   def new
     # create a blank contact object
     @contact = Contact.new

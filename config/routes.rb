@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # on get request, go to pages controller and run about action
   get 'about', to: 'pages#about'
-  resources :contacts
+  # allow only create action from contacts routes
+  resources :contacts, only: :create
+  # on get request, go to contacts_controller and run new action
   get 'contact-us', to: 'contacts#new'
 end
