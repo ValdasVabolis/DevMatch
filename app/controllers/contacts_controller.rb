@@ -18,11 +18,11 @@ class ContactsController < ApplicationController
       ContactMailer.contact_email(name, email, body).deliver
       # redirect to blank form with success message
       flash[:success] = "Message sent!"
-      redirect_to new_contact_path
+      redirect_to contact_us_path
     else
       # redirect to blank form with failure message
       flash[:danger] = @contact.errors.full_messages.join(", ")
-      redirect_to new_contact_path
+      redirect_to contact_us_path
     end
   end
   
