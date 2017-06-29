@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # home page points to pages controller, home action
   root to: 'pages#home'
   # on get request, go to pages controller and run about action
