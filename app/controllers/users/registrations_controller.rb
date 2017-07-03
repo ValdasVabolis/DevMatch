@@ -1,6 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def create
-    # inherit and extend create action
+    # extend default device gem behavior so that
+    # users signing up with the Pro account (plan ID 2)
+    # save with a special Stripe subscription function
+    # otherwise devise signs up user as usual
     super do |resource|
       # check if there are plan parameters ( in url )
       if params[:plan]
