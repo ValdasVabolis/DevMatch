@@ -76,8 +76,19 @@ h1, h2, h3 {
   margin-bottom: 40px;
 }
 
-.alert-notice {
-  display: none;
+.flash-container {
+  position: absolute;
+  width: 100%;
+}
+
+.alert-notice, .alert-alert {
+  text-align: center;
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid;
+  border-radius: 5px;
+  margin-top: -14px;
 }
 
 .home-signup-links {
