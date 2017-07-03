@@ -24,4 +24,4 @@
 /config/application.yml
 
 # Ignore requirements ( it is for our reference )
-/requirements.txt
+requirements.txt
