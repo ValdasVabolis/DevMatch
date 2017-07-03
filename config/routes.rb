@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # routes for devise
-  devise_for :users
   # home page points to pages controller, home action
   root to: 'pages#home'
+  # routes for devise (extend devise functionality)
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   # on get request, go to pages controller and run about action
   get 'about', to: 'pages#about'
   # allow only create action from contacts routes
