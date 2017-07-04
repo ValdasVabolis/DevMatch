@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # routes for devise (extend devise functionality)
   devise_for :users, controllers: { registrations: 'users/registrations' }
+  # nested resource (each user profile has route for various actions)
+  resources :users do
+    resource :profile
+  end
   # on get request, go to pages controller and run about action
   get 'about', to: 'pages#about'
   # allow only create action from contacts routes
