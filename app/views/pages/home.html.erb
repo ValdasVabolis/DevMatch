@@ -23,5 +23,5 @@
     </div>
   </div>
   <!-- current_user comes from Devise gem, allows us to access current signed-in user -->
-  <%= link_to "Create your profile", new_user_profile_path(user_id: current_user.id, memery: "Dank", email: current_user.email) if user_signed_in? %>
+  <%= link_to "Create your profile", new_user_profile_path(user_id: current_user.id) if user_signed_in? %>
 </div>
