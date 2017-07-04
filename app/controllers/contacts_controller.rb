@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   # GET request to /contact-us
   # Show new contact form
   def new
-    # create a blank contact object
+    # create a blank contact object (a list with id, name, etc.)
     @contact = Contact.new
   end
   # saves contact form to db
