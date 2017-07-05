@@ -19,6 +19,11 @@ class ProfilesController < ApplicationController
       render action: :new
     end
   end
+  # GET to /users/:user_id/profile/edit
+  def edit
+    # Retrieve user's existing profile so user can see current form
+    @profile = User.find(params[:user_id]).profile
+  end
   
   private
     def profile_params

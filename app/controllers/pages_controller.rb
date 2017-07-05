@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     # These variables will be accessible in home.html.erb file
     @basic_plan = Plan.find(1)
     @pro_plan = Plan.find(2)
+    @profile = User.find(current_user.id).profile
   end
   
   def about

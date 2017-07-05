@@ -4,24 +4,49 @@
 </div>
 <div class="container home-signup-links">
   <div class="row">
-    <!-- basic sign up form -->
-    <div class="col-md-6">
-      <div class="well">
-        <h2 class="text-center">Basic membership link</h2>
-        <h4 class="text-center">Sign up for free and get basic access to the community.</h4>
-        <br>
-        <%= link_to "Sign up with Basic", new_user_registration_path(plan: @basic_plan.id), class: "btn btn-primary btn-lg btn-block" %>
+    <% if user_signed_in? %>
+      <h2 class="text-center"><%= "Hello, #{@profile.first_name} #{@profile.last_name}!" %></h2>
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">Profile</h2>
+          <!-- Check if user has a profile created already -->
+          <% if current_user.profile %>
+            <!-- Show view and edit options -->
+            <%= link_to "Edit profile", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+            <%= link_to "View profile", user_path(id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+          <!-- User has not created a profile yet, show them the option to do so -->
+          <% else %>
+            <p class="text-center">Create your profile to allow community members to discover you.</p>
+            <%= link_to "Create profile", new_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <!-- pro sign up form -->
-    <div class="col-md-6">
-      <div class="well">
-        <h2 class="text-center">Pro membership link</h2>
-        <h4 class="text-center">Sign up for the Pro account for just $9.99/month and get full access to the community and contact information.</h4>
-        <%= link_to "Sign up with Pro", new_user_registration_path(plan: @pro_plan.id), class: "btn btn-success btn-lg btn-block" %>
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">Community</h2>
+          <p class="text-center">Visit our lovely community to meet other developers, entrepreneurs and investors.</p>
+          <%= link_to "Visit the community", "#", class: 'btn btn-default btn-lg btn-block' %>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <!-- basic sign up form -->
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">Basic membership link</h2>
+          <h4 class="text-center">Sign up for free and get basic access to the community.</h4>
+          <br>
+          <%= link_to "Sign up with Basic", new_user_registration_path(plan: @basic_plan.id), class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+      </div>
+      <!-- pro sign up form -->
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">Pro membership link</h2>
+          <h4 class="text-center">Sign up for the Pro account for just $9.99/month and get full access to the community and contact information.</h4>
+          <%= link_to "Sign up with Pro", new_user_registration_path(plan: @pro_plan.id), class: "btn btn-success btn-lg btn-block" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <!-- current_user comes from Devise gem, allows us to access current signed-in user -->
-  <%= link_to "Create your profile", new_user_profile_path(user_id: current_user.id) if user_signed_in? %>
+  
 </div>
