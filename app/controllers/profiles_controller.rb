@@ -1,4 +1,10 @@
 class ProfilesController < ApplicationController
+  
+  # Make sure user is logged in before executing any actions
+  before_action :authenticate_user!
+  # Make sure user is executing actions on his account
+  before_action :check_current_user
+  
   # GET to /users/:user_id/profile/new
   def new
     # Render blank profile details form
@@ -44,6 +50,10 @@ class ProfilesController < ApplicationController
       # Whitelist forms for security (only accept these params in our db)
       params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title,
                                       :phone_number, :contact_email, :description)
+    end
+    def check_current_user
+      @user = User.find(params[:user_id])
+      redirect_to root_path unless @user == current_user
     end
   
 end
