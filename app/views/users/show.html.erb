@@ -1,1 +1,16 @@
-<%= @user.inspect %>
+<h3>User's first name and last name</h3>
+<%= @user.profile.first_name %>
+<%= @user.profile.last_name %>
+<h3>Job Title</h3>
+<%= @user.profile.job_title %>
+
+<% if current_user.plan_id == 2 %>
+  <h3>User's contact information</h3>
+  <br>
+  <%= @user.profile.phone_number %>
+  <br>
+  <%= @user.profile.contact_email %>
+  <br>
+<% end %>
+<h3>User's description</h3>
+<%= @user.profile.description %>
