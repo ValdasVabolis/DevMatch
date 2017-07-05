@@ -12,8 +12,8 @@ class ProfilesController < ApplicationController
     # Create profile linked to this specific user
     @profile = @user.build_profile(profile_params)
     if @profile.save
-      flash[:success] = "Profile updated successfully."
-      redirect_to user_path(params[:user_id])
+      flash[:success] = "Profile created successfully."
+      redirect_to user_path(id: params[:user_id])
     else
       flash[:danger] = "Something went wrong. Please try again!"
       render action: :new
@@ -23,6 +23,20 @@ class ProfilesController < ApplicationController
   def edit
     # Retrieve user's existing profile so user can see current form
     @profile = User.find(params[:user_id]).profile
+  end
+  # PATCH/PUT to /users/:user_id/profile 
+  def update
+    # Retrieve user's profile from db
+    @profile = User.find(params[:user_id]).profile
+    # Update the profile 
+    if @profile.update_attributes(profile_params)
+      flash[:success] = "Profile updated successfully."
+      # Redirect user to their profile page
+      redirect_to user_path(id: params[:user_id])
+    else
+      flash[:danger] = "Something went wrong. Please try again!"
+      render action: :edit
+    end
   end
   
   private
