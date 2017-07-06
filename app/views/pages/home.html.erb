@@ -3,12 +3,17 @@
   <div class="carousel-inner">
     <div class="item active">
       <%= image_tag "devmatch_banner.png", class: 'banner' %>
-      <div class="carousel-caption">
-        <h1 class="text-center"><%= "Hello, #{@user.profile.first_name} #{@user.profile.last_name}!" %></h1>
-        <%= image_tag @user.profile.avatar.url, class: 'avatar-home-img' %>
-        <br>
-        <span class="home job-title-icon"><%= job_title_icon %></span>
-      </div>
+      <% if @user.profile %>
+        <div class="carousel-caption">
+          <h1 class="text-center"><%= "Hello, #{@user.profile.first_name} #{@user.profile.last_name}!" %></h1>
+          <%= image_tag @user.profile.avatar.url, class: 'avatar-home-img' %>
+          <br>
+          <span class="home job-title-icon"><%= job_title_icon %></span>
+        </div>
+      <% else %>
+        <h1>It looks like you don't have a profile yet.</h1>
+        <h3>Create a profile now using profile tools below</h3>
+      <% end %>
     </div>
   </div>
   <% else %>
