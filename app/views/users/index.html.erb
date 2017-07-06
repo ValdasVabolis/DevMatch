@@ -19,6 +19,11 @@
                     <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
                   <% end %>
                   <h4><%= user.profile.job_title %></h4>
+                  <!-- check if user's account is Pro -->
+                  <% if user.plan.id == 2 %>
+                    <!-- add a pro label -->
+                    <span class="label label-danger">Pro</span>
+                  <% end %>
                 </div>
               </div>
             </li>
