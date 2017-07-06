@@ -3,7 +3,7 @@
       <%= image_tag @user.profile.avatar.url, class: 'avatar-show-img' %>
       <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
       <h3><%= @user.profile.job_title %></h3>
-      <span class="job-title-icon"><%= job_title_icon %></span>
+      <span class="users job-title-icon"><%= job_title_icon %></span>
       <div class="well profile-block profile-bio">
         <h3>Bio</h3>
         <%= @user.profile.description %>

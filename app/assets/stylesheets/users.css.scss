@@ -7,6 +7,14 @@
   border-color: #0084FF;
 }
 
+.avatar-home-img {
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .well.profile-block {
   color: #fff;
   h3 {
@@ -19,7 +27,7 @@
   border-radius: 20px;
 }
 
-.job-title-icon {
+.users.job-title-icon {
   padding-left: 5px;
   padding-right: 5px;
   font-size: 35px;
@@ -35,6 +43,9 @@
   }
 }
 
+.home.job-title-icon {
+  font-size: 50px;
+}
 // User index page styles
 .well.white-bg {
   background-color: white;

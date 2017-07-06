@@ -19,31 +19,22 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-// Typography styles
-h1, h2, h3 {
-  font-family: "Open Sans", sans-serif;
- }
- 
- // Background gradient
-.navbar, .home-callout {
-  /* Gradient provided by @_ighosh at uigradients.com */
-  background: #00c6ff;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, 100% 0, 0 0, from(#0072ff), to(#00c6ff));
-  background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
-  background: -moz-linear-gradient(to right, #0072ff, #00c6ff);
-  background: -o-linear-gradient(to right, #0072ff, #00c6ff);
-  background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
- 
 // Navbar styles
 .navbar {
   border:none;
- }
+  margin-bottom: 0px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: white;
+    transition: all .5s;
+}
  
- .navbar-brand {
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
- }
+.navbar-brand {
+ font-family: 'Open Sans', sans-serif;
+ font-weight: 800;
+}
  
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
   color: white;
@@ -51,6 +42,15 @@ h1, h2, h3 {
    color: white;
    opacity: 0.75;
   }
+  
+}
+
+.navbar-default {
+  background-image: none;
+  background-color: #14233B;
+  z-index: 10; /* bring the menu in front of the background */
+  left: 0;
+  right: 0;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -62,6 +62,18 @@ h1, h2, h3 {
   &:hover, &:focus {
      background-color: #00c6ff;
   }
+}
+
+
+// Header banner styles
+.banner {
+  width: 100%;
+  max-height: 475px;
+}
+
+.carousel-caption {
+  top: 50%;
+  transform: translateY(-75%);
 }
 
 // Homepage styles
@@ -92,5 +104,10 @@ h1, h2, h3 {
 }
 
 .home-signup-links {
+  margin-top: 30px;
+}
+
+// Contact form styles
+.well.contact {
   margin-top: 30px;
 }
