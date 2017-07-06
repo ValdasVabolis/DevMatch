@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   
   # GET to /users
   def index
-    
+    # Get all users from db
+    # Put the user and profiles table together into one query
+    # to minimize server requests
+    @users = User.includes(:profile)
   end
   
   # GET to /users/:id
